@@ -45,6 +45,9 @@ module.exports = function(sequelize, DataTypes) {
     });
     user.associate = function(models) {
         // TODO: any user association you want
+        models.user.hasMany(models.discussion)
+        models.user.hasMany(models.film)
+        models.user.hasMany(models.comment)
     }
     // valid password definition to validate password
     user.prototype.validPassword = function(passwordTyped) {

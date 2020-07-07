@@ -14,10 +14,10 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
-      usersId: {
+      userId: {
         type: Sequelize.INTEGER
       },
-      anime: {
+      film: {
         type: Sequelize.STRING
       },
       createdAt: {
