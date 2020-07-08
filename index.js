@@ -57,6 +57,8 @@ app.get('/profile', isLoggedIn, function(req, res) {
 // include auth controller
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/discussion', require('./controllers/discussion'));
+app.use('/film', require('./controllers/film'));
 
 //initialize app on port
 
