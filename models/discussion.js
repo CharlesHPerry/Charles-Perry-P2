@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   discussion.associate = function(models) {
     // associations can be defined here
     models.discussion.hasMany(models.comment)
-    models.discussion.belongsTo(model.user)
+    models.discussion.belongsTo(models.user)
   };
   return discussion;
 };

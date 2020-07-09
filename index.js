@@ -8,6 +8,7 @@ const flash = require('flash');
 const passport = require('./config/ppConfig');
 const db = require('./models');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const { default: Axios } = require('axios');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // app setup
@@ -47,7 +48,14 @@ app.use(function(req ,res, next) {
 
 app.get('/', (req, res) => {
     //check that user is logged in
-    res.render('index');
+    let apiUrl = 'https://ghibliapi.herokuapp.com/films';
+    Axios.get(apiUrl).then(function(apiResponse) {
+        let result = apiResponse.data
+        res.render('index', {result});
+    }).catch((err) => {
+        console.log(err);
+    })
+    
 })
 
 app.get('/profile', isLoggedIn, function(req, res) {
@@ -62,6 +70,6 @@ app.use('/film', require('./controllers/film'));
 
 //initialize app on port
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 3001, function() {
     console.log(`listening on port ${process.env.PORT} my duud 🌱`);
 })
