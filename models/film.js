@@ -1,6 +1,5 @@
 'use strict';
 
-const usersFilms = require("./usersFilms");
 
 module.exports = (sequelize, DataTypes) => {
   const film = sequelize.define('film', {
