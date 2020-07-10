@@ -1,1 +1,10 @@
-<h2>Hi <%= currentUser.name %>. Welcome to the app!</h2>
+<h2>Hi <%= currentUser.name %>. Here is a list of the films you have added to favorites!</h2>
+<% films.forEach(function(film) { %>
+    <div>
+        <h2> <%= film.name %> </h2>
+        <p> <%= film.filmId %> </p>
+        <form method="GET" action="/film/<%= film.filmId %>">
+            <button class="btn btn-primary" type="submit">Show more detail</button>
+        </form>
+    </div>
+<% }) %>

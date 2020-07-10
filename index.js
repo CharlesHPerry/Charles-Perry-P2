@@ -58,9 +58,6 @@ app.get('/', (req, res) => {
     
 })
 
-app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile');
-})
 
 // include auth controller
 

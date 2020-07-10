@@ -9,7 +9,7 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
     db.film.findAll().then(function(films) {
-        res.redirect('/film', {film: films});
+        res.render('profile', {films});
     }).catch(err => {
         console.log(err)
     })
@@ -18,15 +18,25 @@ router.get('/', isLoggedIn, (req, res) => {
 router.post('/', isLoggedIn, function(req, res) {
     db.film.findOrCreate({
         where: {
-            title: req.body.title
+            name: req.body.title,
+            filmId: req.body.filmId
         },
         defaults: {
-            userId: req.user
+            userId: req.user.id
         }
     }).then(function([film, created]) {
         console.log('added', created)
         res.redirect('/film')
     }).catch(function(err) {
+        console.log(err)
+    })
+})
+
+router.get('/:id', isLoggedIn, function(req, res) {
+    axios.get('https://ghibliapi.herokuapp.com/films/' + req.params.id).then(function(apiResponse) {
+        let result = apiResponse.data
+        res.render('film/show', {result})
+    }).catch(err => {
         console.log(err)
     })
 })

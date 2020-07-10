@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const film = sequelize.define('film', {
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    filmId: DataTypes.STRING
   }, {});
   film.associate = function(models) {
     // associations can be defined here
