@@ -2,7 +2,7 @@
 
 'use strict';
 const bcrypt = require('bcrypt');
-const usersFilms = require('./usersFilms');
+
 //delcare model format
 module.exports = function(sequelize, DataTypes) {
     //define user object
