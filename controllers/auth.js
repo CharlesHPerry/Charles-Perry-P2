@@ -23,7 +23,7 @@ router.post('/register', function(req, res) {
             //authenticate user and start authorization process
             console.log('user created 🤒')
             passport.authenticate('local', {
-                successRedirect: '/profile',
+                successRedirect: '/',
                 successFlash: "Thanks for signing up!"
             })(req, res);
         } else {

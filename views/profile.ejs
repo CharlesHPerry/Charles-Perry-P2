@@ -2,9 +2,11 @@
 <% films.forEach(function(film) { %>
     <div>
         <h2> <%= film.name %> </h2>
-        <p> <%= film.filmId %> </p>
         <form method="GET" action="/film/<%= film.filmId %>">
             <button class="btn btn-primary" type="submit">Show more detail</button>
+        </form>
+        <form method="POST" action="/film/<%= film.filmId %>/?_method=DELETE">
+            <button class="btn btn-primary" type="submit">Remove from favorites</button>
         </form>
     </div>
 <% }) %>

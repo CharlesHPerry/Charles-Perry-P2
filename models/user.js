@@ -1,7 +1,8 @@
 //user model decleration
 
 'use strict';
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const usersFilms = require('./usersFilms');
 //delcare model format
 module.exports = function(sequelize, DataTypes) {
     //define user object
@@ -46,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
     user.associate = function(models) {
         // TODO: any user association you want
         models.user.hasMany(models.discussion)
-        models.user.hasMany(models.film)
+        models.user.belongsToMany(models.film, {through: 'usersFilms'})
         models.user.hasMany(models.comment)
     }
     // valid password definition to validate password

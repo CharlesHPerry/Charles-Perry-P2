@@ -8,8 +8,9 @@ const passport = require("../config/ppConfig");
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
-    db.film.findAll().then(function(films) {
-        res.render('profile', {films});
+    db.user.findOne({where: {id: req.user.id}, include: [db.film]}).then(function(user) {
+        console.log(user.films)
+        res.render('profile', {films: user.films});
     }).catch(err => {
         console.log(err)
     })
@@ -23,10 +24,20 @@ router.post('/', isLoggedIn, function(req, res) {
         },
         defaults: {
             userId: req.user.id
-        }
+        },
+        include: [db.user]
     }).then(function([film, created]) {
-        console.log('added', created)
-        res.redirect('/film')
+        db.usersFilms.findOrCreate({
+            where:{
+                userId: req.user.id,
+                filmId: film.id
+            }
+        }).then(function(join) {
+            console.log('added', created)
+            res.redirect('/film')
+        }).catch(err => {
+            console.log(err)
+        })
     }).catch(function(err) {
         console.log(err)
     })
@@ -40,6 +51,18 @@ router.get('/:id', isLoggedIn, function(req, res) {
         console.log(err)
     })
 })
+
+router.delete('/:id', function(req, res) {
+    db.film.destroy({
+      where: {
+        filmId: req.params.id,
+        userId: req.user.id
+      }
+    }).then(function(deletedFilm) {
+      console.log("film deleted from faves");
+      res.redirect('/film');
+    }).catch(err => console.log(err));
+  })
 
 
 

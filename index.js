@@ -10,7 +10,7 @@ const db = require('./models');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const { default: Axios } = require('axios');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+const methodOverride = require('method-override');
 // app setup
 const app = Express();
 app.use(Express.urlencoded({ extended: false}));
@@ -19,6 +19,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 app.use(helmet());
+app.use(methodOverride('_method'));
 
 //create new instance of session
 const sessionStore = new SequelizeStore({
