@@ -8,9 +8,10 @@ const passport = require("../config/ppConfig");
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
-    db.user.findOne({where: {id: req.user.id}, include: [db.film]}).then(function(user) {
+    db.user.findOne({where: {id: req.user.id}, include: [db.film, db.discussion]}).then(function(user) {
         console.log(user.films)
-        res.render('profile', {films: user.films});
+        console.log(user.discussions)
+        res.render('profile', {films: user.films, discussions: user.discussions});
     }).catch(err => {
         console.log(err)
     })
@@ -62,7 +63,7 @@ router.delete('/:id', function(req, res) {
       console.log("film deleted from faves");
       res.redirect('/film');
     }).catch(err => console.log(err));
-  })
+})
 
 
 

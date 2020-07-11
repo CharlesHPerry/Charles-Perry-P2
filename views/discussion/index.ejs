@@ -1,0 +1,9 @@
+<% discussions.forEach(function(post) { %>
+<div class="well">
+    <h2>
+        <a href="/discussion/<%= post.id %>">Topic: <%= post.title %></a>
+    </h2>
+    <h4>Film in discussion: <%= post.film %></h4>
+</div>
+<% }) %>
+<h5>Not many discussions to read? <a href="/discussion/new">Create your own! </a></h5>

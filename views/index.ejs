@@ -3,7 +3,7 @@
 <% result.forEach(function(film) { %>
 <div class="well"> 
     <h2>
-        <a href="/discussion/<%= film.id %>"><%= film.title %></a>
+        <a href="/film/<%= film.id %>"><%= film.title %></a>
     </h2>
     <p>
         <strong>Released: <%= film.release_date %><br> Rotten Tomatos Score: <%= film.rt_score %></strong>
