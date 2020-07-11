@@ -47,7 +47,7 @@ router.get('/:id', function(req, res) {
 })
 
 router.get('/:id/edit', isLoggedIn, function(req, res) {
-  db.findOne({
+  db.discussion.findOne({
     where: {
       id: req.params.id,
       userId: req.user.id
@@ -68,7 +68,7 @@ router.put('/:id/edit', isLoggedIn, function(req, res) {
   },
   {where: {
     id: req.params.id,
-    userId: req.user.id
+    //userId: req.user.id
   }
   }).then(function(updated){
     res.redirect('/discussion')

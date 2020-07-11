@@ -10,3 +10,12 @@
         </form>
     </div>
 <% }) %>
+<h3>Your Discussions:</h3>
+<% discussions.forEach(function(d) { %>
+    <div>
+        <h2><%= d.title %></h2>
+        <form method="GET" action="/discussion/<%= d.id %>/edit">
+            <button class="btn btn-primary" type="submit">Edit your discussion</button>
+        </form>
+    </div>
+<% }) %>

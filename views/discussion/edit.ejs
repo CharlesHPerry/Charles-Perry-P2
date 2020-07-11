@@ -1,12 +1,12 @@
 <h1>Edit the discussion as you desire.</h1>
 <div>
-    <form method="POST" action="/discussion/<%= discussion.id %>/?_method=PUT">
+    <form method="POST" action="/discussion/<%= discussion.id %>/edit/?_method=PUT">
         <label for="title" >Title</label>
-        <input id="title" type="text" name="title" value="<%= db.discussion.title %>">
+        <input id="title" type="text" name="title" value="<%= discussion.title %>">
         <label for="film">Film</label>
-        <input id="film" type="text" name="film" value="<%= db.discussion.film %>">
+        <input id="film" type="text" name="film" value="<%= discussion.film %>">
         <label for="content">Content</label>
-        <input id="content" type="text" name="content" value="<%= db.discussion.content %>">
+        <input id="content" type="text" name="content" value="<%= discussion.content %>">
         <input type="submit">
     </form>
 </div>
