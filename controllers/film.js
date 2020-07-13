@@ -9,8 +9,6 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
     db.user.findOne({where: {id: req.user.id}, include: [db.film, db.discussion]}).then(function(user) {
-        console.log(user.films)
-        console.log(user.discussions)
         res.render('profile', {films: user.films, discussions: user.discussions});
     }).catch(err => {
         console.log(err)
@@ -57,7 +55,7 @@ router.delete('/:id', function(req, res) {
     db.film.destroy({
       where: {
         filmId: req.params.id,
-        userId: req.user.id
+        //userId: req.user.id
       }
     }).then(function(deletedFilm) {
       console.log("film deleted from faves");

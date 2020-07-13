@@ -1,9 +1,16 @@
+<style type="text/css">
+    body {
+        background-image: url('/images/allchars.jpg');
+        background-attachment: fixed;
+    }
+</style>
+
 <% discussions.forEach(function(post) { %>
-<div class="well">
+<div class="well" style="background-color: white; width: 25vw;">
     <h2>
         <a href="/discussion/<%= post.id %>">Topic: <%= post.title %></a>
     </h2>
     <h4>Film in discussion: <%= post.film %></h4>
 </div>
 <% }) %>
-<h5>Not many discussions to read? <a href="/discussion/new">Create your own! </a></h5>
+<h5 style="text-shadow:2px 2px 2px black; color: white;">Not many discussions to read? <a href="/discussion/new">Create your own! </a></h5>

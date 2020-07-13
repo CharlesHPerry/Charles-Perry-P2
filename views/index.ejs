@@ -1,17 +1,29 @@
-<h1>Login or Register to join participate!</h1>
+<style type="text/css">
+body {
+    background-image: url('/images/totoro.jpg');
+    background-attachment: fixed;
+}
+</style>
 
-<% result.forEach(function(film) { %>
-<div class="well"> 
-    <h2>
-        <a href="/film/<%= film.id %>"><%= film.title %></a>
-    </h2>
-    <p>
-        <strong>Released: <%= film.release_date %><br> Rotten Tomatos Score: <%= film.rt_score %></strong>
-    </p>
-    <form method="POST" action="/film">
-        <input hidden type="text" name="title" value="<%= film.title %>">
-        <input hidden type="text" name="filmId" value="<%= film.id %>">
-        <button class="btn btn-primary" type="submit">Add to Favorite Films</button>
-    </form>
+
+
+<h1>Login or Register to participate!</h1>
+<div class="container">
+    <div class="row row-cols-5 p-0">
+        <% result.forEach(function(film) { %>
+            <div class="well col mb-3 mx-1 mx-auto" style="background-color: rgb(241, 241, 241);"> 
+                <h4>
+                    <a href="/film/<%= film.id %>"><%= film.title %></a>
+                </h4>
+                <p>
+                    <strong>Released: <%= film.release_date %><br> Rotten Tomatos Score: <%= film.rt_score %></strong>
+                </p>
+                <form method="POST" action="/film">
+                    <input hidden type="text" name="title" value="<%= film.title %>">
+                    <input hidden type="text" name="filmId" value="<%= film.id %>">
+                    <button class="btn btn-secondary" type="submit">Add to Favorite Films</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
 </div>
-<% }) %>

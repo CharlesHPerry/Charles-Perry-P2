@@ -1,12 +1,19 @@
-<h1>Edit the discussion as you desire.</h1>
+<style type="text/css">
+    body {
+        background-image: url('/images/houseman.jpg');
+        background-attachment: fixed;
+    }
+</style>
+
+<h1 style="text-align: center; color: white;">Edit the discussion as you desire.</h1>
 <div>
     <form method="POST" action="/discussion/<%= discussion.id %>/edit/?_method=PUT">
-        <label for="title" >Title</label>
+        <label for="title" style="color: white;" >Title</label>
         <input id="title" type="text" name="title" value="<%= discussion.title %>">
-        <label for="film">Film</label>
+        <label for="film" style="color: white;">Film</label>
         <input id="film" type="text" name="film" value="<%= discussion.film %>">
-        <label for="content">Content</label>
-        <input id="content" type="text" name="content" value="<%= discussion.content %>">
+        <label for="content" style="color: white;">Content</label>
+        <input id="content" type="text" name="content" style="width: 35vw;" value="<%= discussion.content %>">
         <input type="submit">
     </form>
 </div>
