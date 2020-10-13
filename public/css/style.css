@@ -1,0 +1,33 @@
+.dropshadow {
+    text-shadow:1px 1px 1px black;
+    color: white;
+}
+
+.center_ds {
+    text-align: center;
+    text-shadow:1px 1px 1px black;
+    color: white;
+}
+
+.nav {
+    background-color: white;
+    font-size: 20px;
+}
+
+.main_bkrd {
+    background-color:  rgb(241, 241, 241);
+}
+
+.txt{
+    text-align: center;
+    text-shadow:1px 1px 1px black;
+    color: white;
+}
+
+.center_txt {
+    text-align: center;
+}
+
+.discussion_ht {
+    height: 40px;
+}

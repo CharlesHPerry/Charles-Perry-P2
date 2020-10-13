@@ -3,19 +3,11 @@
         background-image: url('/images/bestone.jpg');
         background-attachment: fixed;
     }
-    .txt{
-        text-align: center;
-        text-shadow:1px 1px 1px black;
-        color: white;
-    }
-    div {
-        text-align: center;
-    }
 </style>
 
 <h2 class="txt">Hi <%= currentUser.name %>. Here is a list of the films you have added to favorites!</h2>
 <% films.forEach(function(film) { %>
-    <div>
+    <div class="center_txt">
         <h2 class="txt"> <%= film.name %> </h2>
         <form method="GET" action="/film/<%= film.filmId %>">
             <button class="btn btn-outline-dark" type="submit">Show more detail</button>
