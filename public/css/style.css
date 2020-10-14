@@ -31,3 +31,8 @@
 .discussion_ht {
     height: 40px;
 }
+
+.black_ts {
+    text-shadow:2px 2px 2px black;
+    color: white;
+}
