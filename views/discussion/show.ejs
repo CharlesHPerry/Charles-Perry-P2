@@ -10,3 +10,20 @@
     <h3 style="text-shadow:1px 1px 1px black; color: white;"><%= discussion.film %></h3>
     <p style="text-shadow:1px 1px 1px black; color: white;"><%= discussion.content %></p>
 </div>
+<div>
+    <h2>Comments</h2>
+    <% if (comments) { %>
+        <% comments.forEach(function(comment) { %>
+            <div>
+                <p><%= comment.content %></p>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No comments on this disscusion yet.</p>
+    <% } %>
+  <h4>Leave a comment</h4>
+  <form method="POST" action="/discussion/<%=discussion.id%>/comment">
+    <input id="content" type="text" name="content" class="form-control" required>
+    <button class="btn btn-primary" type="submit">Comment</button>
+  </form>
+</div>
