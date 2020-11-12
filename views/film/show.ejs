@@ -2,19 +2,17 @@
     body {
         background-image: url('/images/leftcity.png');
         background-attachment: fixed;
-    }
-    .txt{
-        text-align: center;
-        text-shadow:1px 1px 1px black;
-        color: white;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>
 
-
-<h1 class="txt">Title: <%= result.title %></h1>
-<p class="txt">Description  <%= result.description %></p>
-<p class="txt">Directed by: <%= result.director %></p>
-<p class="txt">Producer: <%= result.producer %></p>
-<p class="txt">Release Date: <%= result.release_date %></p>
-<p class="txt">Rotten Tomatos Score: <%= result.rt_score %></p>
+<div class="discussion_div">
+    <h1 class="d_title">Title: <%= result.title %></h1>
+    <p class="film_desc">Description:  <%= result.description %></p>
+    <p class="">Directed by: <%= result.director %></p>
+    <p class="">Producer: <%= result.producer %></p>
+    <p class="">Release Date: <%= result.release_date %></p>
+    <p class="">Rotten Tomatos Score: <%= result.rt_score %></p>
+</div>
 

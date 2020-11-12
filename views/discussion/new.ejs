@@ -4,16 +4,22 @@
         background-attachment: fixed;
     }
 </style>
-<h1 style="text-align: center; text-shadow:1px 1px 1px black; color: white;">Create a new discussion for people to participate in!</h1>
+<h1 class="txt">Create a new discussion for people to participate in!</h1>
 
-<div>
-    <form method="POST" action="/discussion/new">
-        <label for="title" style="color: white;">Title:</label>
-        <input id="title" type="text" name="title" required>
-        <label for="film" style="color: white;">Film the discussion is about:</label>
-        <input id="film" type="text" name="film" required>
-        <label for="content" style="color: white;">Content of film discussion:</label>
-        <textarea id="content" type="text" name="content" required></textarea>
-        <input type="submit">
+<div class="films_d">
+    <form method="POST" action="/discussion/new" class="c_form">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="film">Film the discussion is about:</label>
+            <input id="film" type="text" name="film" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content of film discussion:</label>
+            <textarea id="content" type="text" name="content" class="form-control" rows="4" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

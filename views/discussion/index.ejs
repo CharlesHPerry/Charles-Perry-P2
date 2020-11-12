@@ -2,15 +2,19 @@
     body {
         background-image: url('/images/allchars.jpg');
         background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>
-
-<% discussions.forEach(function(post) { %>
-<div class="well" style="background-color: white; width: 25vw;">
-    <h2>
-        <a href="/discussion/<%= post.id %>">Topic: <%= post.title %></a>
-    </h2>
-    <h4>Film in discussion: <%= post.film %></h4>
+<div class="films">
+    <h1 class="greeting_txt">Discussions:</h1>
+    <% discussions.forEach(function(post) { %>
+        <div class="film">
+            <h2 class="underline">
+                <a href="/discussion/<%= post.id %>"><%= post.title %></a>
+            </h2>
+            <h4>Topic: <%= post.film %></h4>
+        </div>
+        <% }) %>
+        <h5 class="black_ts">Not many discussions to read? <a href="/discussion/new">Create your own! </a></h5>
 </div>
-<% }) %>
-<h5 style="text-shadow:2px 2px 2px black; color: white;">Not many discussions to read? <a href="/discussion/new">Create your own! </a></h5>

@@ -38,9 +38,9 @@ router.post('/new', (req, res) => {
 router.get('/:id', function(req, res) {
   db.discussion.findOne({
     where: { id: req.params.id },
-    include: [db.user]
+    include: [db.user, db.comment]
   }).then(function(discussion) {
-    res.render('discussion/show', {discussion})
+    res.render('discussion/show', {discussion, comments: discussion.comments})
   }).catch(err => {
     console.log(err)
   })
@@ -76,5 +76,30 @@ router.put('/:id/edit', isLoggedIn, function(req, res) {
     console.log(err)
   })
 })
+
+router.post('/:id/comment', isLoggedIn, function(req, res) {
+  db.comment.create({
+    discussionId: req.params.id,
+    content: req.body.content,
+    userId: req.user.id,
+  }).then(function(){
+    res.redirect(`/discussion/${req.params.id}`);
+  }).catch(function(err) {
+    console.log(err);
+  })
+});
+
+router.delete('/:id/comment/:idc', isLoggedIn, function(req, res) {
+  db.comment.destroy({
+    where: {
+      id: req.params.idc,
+    }
+  }).then(function(deletedComment) {
+    console.log("Comment deleted");
+    res.redirect(`/discussion/${req.params.id}`);
+  }).catch(function(err) {
+    console.log(err)
+  })
+});
 
 module.exports = router;

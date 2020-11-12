@@ -4,26 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css"
 
         <title>Studio Ghibli Forums</title>
     </head>
     <body>
         <header>
-            <nav class="sticky-top" style="background-color: white; font-size: 15px;">
+            <nav class="my_navbar">
                 <% if (currentUser) { %>
-                    <a href="/auth/logout">Logout</a>
-                    <a href="/film">Profile</a>
                     <a href="/">All Films</a>
                     <a href="/discussion">Discussions</a>
                     <a href="/discussion/new">Create A Discussion</a>
+                    <a href="/film">Profile</a>
+                    <a href="/auth/logout">Logout</a>
                 <% } else { %>
                     <a href="/auth/register">Register</a>
                     <a href="/auth/login">Login</a>
                 <% } %>
             </nav>
         </header>
-        <div class="container mx-auto">
-            <h1 style="text-align: center; text-shadow:1px 1px 1px black; color: white;">Studio Ghibli Forums</h1>
+        <div>
             <%- body %>
         </div>
     </body>

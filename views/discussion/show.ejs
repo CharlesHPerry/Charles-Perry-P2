@@ -2,11 +2,39 @@
     body {
         background-image: url('/images/robotpretty.jpg');
         background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
         
     }
 </style>
-<div style="text-align: center;">
-    <h1 style="text-shadow:1px 1px 1px black; color: white;"><%= discussion.title %></h1>
-    <h3 style="text-shadow:1px 1px 1px black; color: white;"><%= discussion.film %></h3>
-    <p style="text-shadow:1px 1px 1px black; color: white;"><%= discussion.content %></p>
+<div class="discussion_div">
+    <h1 class="d_title"><%= discussion.title %></h1>
+    <h3 class="d_film"><%= discussion.film %></h3>
+    <p class="d_content"><%= discussion.content %></p>
+</div>
+<div class="comment_div">
+    <h2 class="c_title">Comments</h2>
+    <% if (comments) { %>
+        <% comments.forEach(function(comment) { %>
+            <% if (currentUser.id == comment.userId) { %>
+                <form method="POST" action="/discussion/<%=discussion.id%>/comment/<%=comment.id%>/?_method=DELETE" class="c_form">
+                    <p><%= comment.content%></p>
+                    <button class="btn btn-primary" type="submit" >
+                        Delete your Comment
+                    </button>
+                </form>
+            <% } else { %>
+                <div class="c_form">
+                    <p><%= comment.content %></p>
+                </div>
+            <% } %>
+        <% }) %> 
+    <% } else { %>
+        <p>No comments on this disscusion yet.</p>
+    <% } %>
+  <h4 class="c_form">Leave a comment</h4>
+  <form method="POST" action="/discussion/<%=discussion.id%>/comment" class="c_form">
+    <input id="content" type="text" name="content" class="form-control" required>
+    <button class="btn btn-primary" type="submit">Comment</button>
+  </form>
 </div>
