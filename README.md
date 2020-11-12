@@ -2,6 +2,7 @@
 ## Link to the site: https://ghiblifilmp2.herokuapp.com/
 -The purpose of the Studio Ghibli Forums is to provide a place to for the enthusiasts of Studio Ghibli to list their favorite of the films and create discussions about said films.
 ![Route Chart and DB Models](public/images/DBWF.png)
+- Old screenshots of the website, most pages look drastically different.
 ![image of website](public/images/screenshot1.png)
 ![image of website2](public/images/screenshot2.png)
 - When I originally had the idea to create this site I imagined having a site where users would be able to select their favorite films, start a discussion and comment on other users posts. Due to a misunderstanding of the technologies used, I spent a lot of time going back to change the database models that I had set up to be able to accomplish the tasks that I wanted to within my site. As it stands the website is missing the ablility to view who posted what discussion and or comment.
