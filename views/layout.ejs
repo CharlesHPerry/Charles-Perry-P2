@@ -10,21 +10,20 @@
     </head>
     <body>
         <header>
-            <nav class="sticky-top nav">
+            <nav class="my_navbar">
                 <% if (currentUser) { %>
-                    <a href="/auth/logout">Logout</a>
-                    <a href="/film">Profile</a>
                     <a href="/">All Films</a>
                     <a href="/discussion">Discussions</a>
                     <a href="/discussion/new">Create A Discussion</a>
+                    <a href="/film">Profile</a>
+                    <a href="/auth/logout">Logout</a>
                 <% } else { %>
                     <a href="/auth/register">Register</a>
                     <a href="/auth/login">Login</a>
                 <% } %>
             </nav>
         </header>
-        <div class="container mx-auto">
-            <h1 class="center_ds">Studio Ghibli Forums</h1>
+        <div>
             <%- body %>
         </div>
     </body>

@@ -83,8 +83,23 @@ router.post('/:id/comment', isLoggedIn, function(req, res) {
     content: req.body.content,
     userId: req.user.id,
   }).then(function(){
-    res.redirect(`/discussion/${req.params.id}`)
+    res.redirect(`/discussion/${req.params.id}`);
+  }).catch(function(err) {
+    console.log(err);
   })
-})
+});
+
+router.delete('/:id/comment/:idc', isLoggedIn, function(req, res) {
+  db.comment.destroy({
+    where: {
+      id: req.params.idc,
+    }
+  }).then(function(deletedComment) {
+    console.log("Comment deleted");
+    res.redirect(`/discussion/${req.params.id}`);
+  }).catch(function(err) {
+    console.log(err)
+  })
+});
 
 module.exports = router;

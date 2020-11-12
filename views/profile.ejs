@@ -4,27 +4,34 @@
         background-attachment: fixed;
     }
 </style>
-
-<h2 class="txt">Hi <%= currentUser.name %>. Here is a list of the films you have added to favorites!</h2>
-<% films.forEach(function(film) { %>
-    <div class="">
-        <h2 class="txt"> <%= film.name %> </h2>
-        <div class="center_txt">
-            <form method="GET" action="/film/<%= film.filmId %>">
-                <button class="btn btn-primary" type="submit">Show more detail</button>
-            </form>
-            <form method="POST" action="/film/<%= film.filmId %>/?_method=DELETE">
-                <button class="btn btn-primary" type="submit">Remove from favorites</button>
+<div class="greeting">
+    <h2 class="greeting_txt">Hi <%= currentUser.name %>. Here is a list of the films you have added to favorites!</h2>
+</div>
+<div class="films">
+    <% films.forEach(function(film) { %>
+        <div class="film">
+            <h2 class="film-txt"> <%= film.name %> </h2>
+            <div class="film_buttons">
+                <form method="GET" action="/film/<%= film.filmId %>">
+                    <button class="btn btn-primary" type="submit">Show more detail</button>
+                </form>
+                <form method="POST" action="/film/<%= film.filmId %>/?_method=DELETE">
+                    <button class="btn btn-primary" type="submit">Remove from favorites</button>
+                </form>
+            </div>
+        </div>
+    <% }) %>
+</div>
+<div class="greeting">
+    <h3 class="dis_txt">Your Discussions:</h3>
+</div>
+<div class="films">
+    <% discussions.forEach(function(d) { %>
+        <div class="film">
+            <h2 class="film-txt"><%= d.title %></h2>
+            <form method="GET" action="/discussion/<%= d.id %>/edit">
+                <button class="btn btn-primary" type="submit">Edit your discussion</button>
             </form>
         </div>
-    </div>
-<% }) %>
-<h3 class="txt">Your Discussions:</h3>
-<% discussions.forEach(function(d) { %>
-    <div class="center_txt">
-        <h2 class="txt"><%= d.title %></h2>
-        <form method="GET" action="/discussion/<%= d.id %>/edit">
-            <button class="btn btn-primary" type="submit">Edit your discussion</button>
-        </form>
-    </div>
-<% }) %>
+    <% }) %>
+</div>

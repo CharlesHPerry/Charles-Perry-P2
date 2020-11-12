@@ -5,14 +5,18 @@ body {
 }
 </style>
 
-
-
-<h1>Login or Register to participate!</h1>
-<div class="container">
-    <div class="row row-cols-5 p-0">
+<div class="">
+    <div class="greeting">
+        <% if (currentUser) { %>
+            <h1 class="greeting_txt">Welcome to the Studio Ghibli Forums <%= currentUser.name %>!</h1>
+        <% } else { %>
+            <h1 class="greeting_txt">Welcome to the Studio Ghibli Forums, Login or Register to participate!</h1>
+        <% } %>
+    </div>
+    <div class="main-grid">
         <% result.forEach(function(film) { %>
-            <div class="well col mb-3 mx-1 mx-auto main_bkrd"> 
-                <h4>
+            <div class="grid-item"> 
+                <h4 class="underline">
                     <a href="/film/<%= film.id %>"><%= film.title %></a>
                 </h4>
                 <p>

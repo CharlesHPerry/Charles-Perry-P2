@@ -1,3 +1,9 @@
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 .dropshadow {
     text-shadow:1px 1px 1px black;
     color: white;
@@ -24,10 +30,6 @@
     color: white;
 }
 
-.center_txt {
-    text-align: center;
-}
-
 .discussion_ht {
     height: 40px;
 }
@@ -35,8 +37,179 @@
 .black_ts {
     text-shadow:2px 2px 2px black;
     color: white;
+    text-align: center;
 }
 
-.inline_items {
-    display: inline-block;
+.main-grid {
+    justify-content: center;
+    display: grid;
+    grid-template-columns:20vw 20vw 20vw 20vw;
+    margin: 5vh 5vw;
+}
+
+.grid-item {
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+    width: 15vw;
+    height: auto;
+    margin-top: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    border-radius: 10px;
+}
+
+.greeting {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin: 0 auto;
+    color: rgb(50, 5, 50);
+}
+
+.greeting_txt {
+    font-size: 7vh;
+    background-color: aliceblue;
+    padding: 1% 1% 1% 1%;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.auth {
+    width: 60%;
+    justify-content: center;
+    margin-top: 10vh;
+    background-color: rgb(230, 228, 228);
+    padding: 1% 1% 1% 1%;
+    border-radius: 10px;
+}
+
+.auth_form {
+    font-size: 3vh;
+}
+
+.auth_div {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.films {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 5vh;
+}
+
+.film {
+    margin: 0 auto;
+    text-align: center;
+    border-style: inset;
+    border-color: black;
+    border-width: 1px;
+    padding-bottom: 3vh;
+    margin-bottom: 2vh;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.film_buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.film-txt {
+    color: black;
+}
+
+.dis_txt {
+    font-size: 5vh;
+    background-color: aliceblue;
+    padding: 1% 1% 1% 1%;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.discussion_div {
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+}
+
+.d_title {
+    text-align: center;
+    font-size: 7vh;
+}
+
+.d_film {
+    text-align: center;
+    font-size: 5vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.d_content {
+    font-size: 3vh;
+    width: 80%;
+    padding-left: 5vw;
+}
+
+.comment_div {
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.c_form {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2vh;
+    font-size: 3vh;
+}
+
+.c_title {
+    text-align: center;
+    font-size: 4vh;
+    padding-top: 2vh;
+}
+
+.films_d {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 5vh;
+    background-color: rgba(255, 255, 255, 0.865);
+    border-radius: 10px;
+}
+
+.film_desc {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 2.5vh;
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 3vh;
+}
+
+.my_navbar {
+    width: 100%;
+    display: inline-flex;
+    font-size: 3vh;
+    background-color: rgb(75, 176, 254);
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: black;
+}
+
+.underline {
+    text-decoration: underline;
 }
